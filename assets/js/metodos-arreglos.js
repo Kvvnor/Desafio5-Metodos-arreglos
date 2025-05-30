@@ -54,7 +54,7 @@ const generateTemplateTodo = (todo) => {
 
 
 
-const updateDetails = () => {
+    const updateDetails = () => {
     const totalTodosSpan = document.getElementById('totalTodos');
     const completedTodosSpan = document.getElementById('completedTodos');
 
@@ -63,7 +63,7 @@ const updateDetails = () => {
 }
 
 
-const generateAllTodos = () => {
+    const generateAllTodos = () => {
     tbody.innerHTML = '';
     todoList.forEach( todo => tbody.innerHTML += generateTemplateTodo(todo) );
     updateDetails();
@@ -80,7 +80,7 @@ console.log(todoList)
 const addTodo = (todo) => {
 
 
-    const todoObj = {
+        const todoObj = {
         id: ++lastCorrelativeID,
         dataId: Date.now(),
         name: todo,
@@ -98,7 +98,7 @@ const addTodo = (todo) => {
 }
 
 
-const deleteTodo = (tr) => {
+    const deleteTodo = (tr) => {
     const todoID = parseInt(tr.dataset.id);
     const todoIndex = todoList.findIndex( todo => todo.dataId === todoID );
     
@@ -117,7 +117,7 @@ const deleteTodo = (tr) => {
 }
 
 
-const completedTodo = (tr, checkCompleted) => {
+    const completedTodo = (tr, checkCompleted) => {
     const todoID = parseInt(tr.dataset.id);
 
     const todoIndex = todoList.findIndex( todo => todo.dataId === todoID );
@@ -137,12 +137,12 @@ const completedTodo = (tr, checkCompleted) => {
 
 
 
-btnAdd.addEventListener('click', event => {
+    btnAdd.addEventListener('click', event => {
     const todo = inputTodo.value.trim();
 
 
     if ( todo.length === 0 ) {
-        alert('Debes ingresar una tarea!');
+        alert('Ingresar tarea');
         return;
     }
 
@@ -151,7 +151,7 @@ btnAdd.addEventListener('click', event => {
 });
 
 
-tbody.addEventListener('click', (event) => {
+    tbody.addEventListener('click', (event) => {
     const trTodo = event.target.closest('tr');
     const btnRemove = event.target.closest('.btn-remove');
     const checkboxCompleted = event.target.closest('.todo-completed');
